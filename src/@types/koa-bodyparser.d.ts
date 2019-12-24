@@ -1,6 +1,6 @@
 /**
  * @file koa-bodyparser types
- * @copyright simplefox GmbH
+ * @copyright peerbits
  * @author Shrujal Shah <shrujal@peerbits.com>
  */
 

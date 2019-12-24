@@ -1,6 +1,6 @@
 /**
  * @file route middleware
- * @copyright simplefox GmbH
+ * @copyright peerbits
  * @author Shrujal Shah <shrujal@peerbits.com>
  */
 

@@ -1,6 +1,6 @@
 /**
  * @file random service
- * @copyright simplefox GmbH
+ * @copyright peerbits
  * @author Rafael Kallis <rk@rafaelkallis.com>
  */
 
