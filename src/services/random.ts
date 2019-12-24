@@ -6,19 +6,21 @@
 
 import crypto from 'crypto';
 
+import { log } from './log';
+
 export const cryptoRandomNumber = (minimum: number, maximum: number) => {
   const distance = maximum - minimum;
 
   if (minimum >= maximum) {
-    console.log('Minimum number should be less than maximum');
+    log.warn('Minimum number should be less than maximum');
     return false;
   } else if (distance > 281474976710655) {
-    console.log(
+    log.warn(
       'You can not get all possible random numbers if range is greater than 256^6-1'
     );
     return false;
   } else if (maximum > Number.MAX_SAFE_INTEGER) {
-    console.log('Maximum number should be safe integer limit');
+    log.warn('Maximum number should be safe integer limit');
     return false;
   } else {
     let maxBytes = 6;
