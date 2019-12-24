@@ -1,6 +1,12 @@
+/**
+ * @file route middleware
+ * @copyright simplefox GmbH
+ * @author Rafael Kallis <rk@rafaelkallis.com>
+ */
+
 import { Context, Middleware } from 'koa';
 import compose from 'koa-compose';
-import pathToRegexp from 'path-to-regexp';
+import pathToRegexp, { Key } from 'path-to-regexp';
 
 export const get = route('get');
 export const post = route('post');
@@ -26,7 +32,7 @@ function route(method: string) {
     ...middlewares: Array<Middleware<T>>
   ): Middleware => {
     const middleware = compose(middlewares);
-    const keys: pathToRegexp.Key[] = [];
+    const keys: Key[] = [];
     const re = pathToRegexp(path, keys);
 
     return async function routeInner(ctx, next) {
@@ -39,7 +45,7 @@ function route(method: string) {
         await next();
         return;
       }
-      let params = ctx.request.params || {};
+      let params = ctx.request.params ?? {};
       let key: string | number;
       let val: string;
       for (let i = 0; i < keys.length; i++) {

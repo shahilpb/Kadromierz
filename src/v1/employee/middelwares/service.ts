@@ -22,11 +22,18 @@ export const CreateEmployee = async (
 };
 
 /**
- * Get Employee List Query
- * Get Only Activated Users
+ * Get Employee List
  */
-export const EmployeeList = async (): Promise<EmployeeDocument[]> => {
-  return await Employee.find().exec();
+export const EmployeeList = async (
+  start: number,
+  end: number
+): Promise<{ data: EmployeeDocument[]; count: number }> => {
+  const count = await Employee.estimatedDocumentCount();
+  const employees = await Employee.find()
+    .skip(start)
+    .limit(end - start)
+    .exec();
+  return { data: employees, count };
 };
 
 /**

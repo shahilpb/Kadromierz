@@ -1,29 +1,47 @@
+/**
+ * @file validation middleware
+ * @copyright simplefox GmbH
+ * @author Rafael Kallis <rk@rafaelkallis.com>
+ */
+
 import Joi from '@hapi/joi';
 import { Middleware } from 'koa';
 
-import * as errors from '../errors';
+import {
+  BaseError,
+  RequestBodyValidationError,
+  RequestParamsValidationError,
+  RequestQueryValidationError
+} from '../errors';
 
-export const validate = {
+/**
+ * Validation middleware.
+ */
+export interface IValidateMiddleware {
   /**
    * Body validation middleware.
    */
-  body: validateRequestProp('body', errors.RequestBodyValidationError),
-
+  body: <T>(schema: Joi.SchemaLike) => Middleware<T>;
   /**
    * Query validation middleware.
    */
-  query: validateRequestProp('query', errors.RequestQueryValidationError),
-
+  query: <T>(schema: Joi.SchemaLike) => Middleware<T>;
   /**
    * Params validation middleware.
    */
-  params: validateRequestProp('params', errors.RequestParamsValidationError)
+  params: <T>(schema: Joi.SchemaLike) => Middleware<T>;
+}
+
+/**
+ * Builds the validation middleware.
+ */
+export const validate: IValidateMiddleware = {
+  body: validateRequestProp('body', RequestBodyValidationError),
+  query: validateRequestProp('query', RequestQueryValidationError),
+  params: validateRequestProp('params', RequestParamsValidationError)
 };
 
-type IErrorConstructor = new (
-  message: string,
-  property: string
-) => errors.BaseError;
+type IErrorConstructor = new (message: string, property: string) => BaseError;
 
 function validateRequestProp(
   prop: 'body' | 'query' | 'params',
@@ -34,10 +52,12 @@ function validateRequestProp(
     return async function validateRequestPropInner(ctx, next) {
       try {
         // assign to request's body because Joi.validate might transform values
-        ctx.request[prop] = compiledSchema.validate(ctx.request[prop]);
+        ctx.request[prop] = await compiledSchema.validateAsync(
+          ctx.request[prop]
+        );
       } catch (error) {
         const [detail] = error.details;
-        const message = detail.context.message || detail.message;
+        const message = detail.context.message ?? detail.message;
         throw new ErrorConstructor(message, detail.context.label);
       }
       await next();

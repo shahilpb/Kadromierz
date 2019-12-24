@@ -5,9 +5,9 @@
  */
 
 import { server } from './app';
-// import { config } from "./config";
+import { config } from './config';
 import { log } from './services';
 
-server.listen(3000, () => {
-  log.info(`server started on Port 3000`);
+server.listen(config.PORT, () => {
+  log.info(`server started on port ${config.PORT}`);
 });

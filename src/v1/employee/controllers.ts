@@ -46,7 +46,7 @@ interface IGetEmplyeeListContext
   > {}
 export const getEmployeeList = () =>
   get(
-    '/list',
+    '/',
     validate.query({
       start: Joi.number()
         .integer()
@@ -58,15 +58,19 @@ export const getEmployeeList = () =>
         .default(20)
     }),
     async (ctx: IGetEmplyeeListContext) => {
+      const { start, end } = ctx.request.query;
       const util: Util = new Util();
-      const employeeListist: IEmployee[] = await EmployeeList();
-      if (employeeListist.length < 0) {
+      const { data: employees, count } = await EmployeeList(
+        parseInt(start.toString(), 10),
+        parseInt(end.toString(), 10)
+      );
+      if (employees.length < 0) {
         util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
       } else {
         util.ReS(
           ctx,
           'Employee List',
-          { is_last: 1, employees: employeeListist },
+          { is_last: end >= count, employees, count },
           HttpStatus.OK
         );
       }
