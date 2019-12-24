@@ -11,7 +11,7 @@ import { Employee, EmployeeDocument, IEmployee } from '../models';
 export const CreateEmployee = async (
   details: IEmployee
 ): Promise<IEmployee> => {
-  const employeeQuery: IEmployee = {
+  const employee: IEmployee = {
     name: details.name,
     number: details.number,
     position: details.position,
@@ -19,7 +19,7 @@ export const CreateEmployee = async (
     dob: details.dob ?? null
   };
 
-  return await Employee.create(employeeQuery);
+  return await Employee.create(employee);
 };
 
 /**
@@ -47,7 +47,7 @@ export const EmployeeDetailsById = async (
 };
 
 /**
- * Get Employee Detail by Employee ID
+ * Get random Employee Detail
  */
 export const RandomEmployee = async (): Promise<EmployeeDocument | null> => {
   const count = await Employee.estimatedDocumentCount();
