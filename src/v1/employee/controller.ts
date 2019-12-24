@@ -4,9 +4,9 @@
  */
 
 import Joi from '@hapi/joi';
+import HttpStatus from 'http-status-codes';
 import { Context, IBodyContext, IQueryContext } from 'koa';
 
-import { codes } from '../../cores/codes';
 import { Util } from '../../services/util.service';
 import { validate } from '../../v1/middlewares/validate';
 import { get, post } from '../middlewares';
@@ -30,9 +30,9 @@ export const createEmployee = () =>
     const body = ctx.request.body;
     const employee: IEmployee = await CreateEmployee(body);
     if (employee) {
-      util.ReS(ctx, 'Employee List', employee, codes.Ok);
+      util.ReS(ctx, 'Employee List', employee, HttpStatus.OK);
     } else {
-      util.ReE(ctx, 'No Data Found', codes['Not Found'], 'No Data Found');
+      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
     }
   });
 
@@ -63,13 +63,13 @@ export const getEmployeeList = () =>
       const util: Util = new Util();
       const employeeListist: IEmployee[] = await EmployeeList();
       if (employeeListist.length < 0) {
-        util.ReE(ctx, 'No Data Found', codes['Not Found'], 'No Data Found');
+        util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
       } else {
         util.ReS(
           ctx,
           'Employee List',
           { is_last: 1, employees: employeeListist },
-          codes.Ok
+          HttpStatus.OK
         );
       }
     }
@@ -84,8 +84,8 @@ export const getEmployeeDetail = () =>
     const util: Util = new Util();
     const employeeDetails: IEmployee | null = await EmployeeDetailsById('1');
     if (employeeDetails == null) {
-      util.ReE(ctx, 'No Data Found', codes['Not Found'], 'No Data Found');
+      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
     } else {
-      util.ReS(ctx, 'Employee List', employeeDetails, codes.Ok);
+      util.ReS(ctx, 'Employee List', employeeDetails, HttpStatus.OK);
     }
   });
