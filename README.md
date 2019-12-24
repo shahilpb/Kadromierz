@@ -30,5 +30,6 @@
 
 - `Node.js`
 - `Koa`
+- `React`
 - `Typescript`
 - `Mongo`

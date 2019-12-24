@@ -44,7 +44,6 @@
     "logform": "^2.1.2",
     "moment": "2.24.0",
     "mongoose": "^5.8.2",
-    "p-iteration": "^1.1.8",
     "path-to-regexp": "^3.1.0",
     "pm2": "4.1.2",
     "winston": "^3.2.1",

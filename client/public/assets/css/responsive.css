@@ -1,0 +1,382 @@
+/* ********************************************************************************************
+    Design for a width of 992px and above
+*********************************************************************************************** */
+
+@media only screen and (max-width: 1920px) and (min-width: 1400px) {
+    
+    
+
+}  
+
+/* ********************************************************************************************
+    Design for a width of 768px and above
+*********************************************************************************************** */
+
+@media only screen and (min-width: 768px) {
+
+    .darkHeader {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16)
+    }
+    /*.darkHeader .navbar-nav li a{
+	color:#595860 !important;
+    }*/
+    /*.navbar-collapse .navbar-nav .nav-item .nav-link {
+	color: #fff !important;
+    }*/
+   
+
+}
+
+/* ********************************************************************************************
+    Design for a width of 992px and above
+*********************************************************************************************** */
+
+@media only screen and (min-width: 992px) {
+    
+    
+    
+
+}
+
+/* ********************************************************************************************
+    Design for a width of 12000px and above
+*********************************************************************************************** */
+
+@media only screen and (min-width: 1200px) {
+    
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 992px and below
+*********************************************************************************************** */
+@media screen and (max-width: 1199px){
+    
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px)  {
+    
+   
+}
+
+/* ********************************************************************************************
+    Design for a width of 992px and below
+*********************************************************************************************** */
+
+@media only screen and (min-width: 768px) and (max-width: 991px)  {
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 1024px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 1024px) {
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 991px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 991px) {
+    
+    .mb-40 {
+	margin-bottom: 20px;
+    }
+
+    
+
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 767px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 767px) {
+
+body {
+    font-size: 14px;    
+}
+.form-control {
+    font-size: 14px;
+}
+.header-after-login .navbar-collapse {
+    background: #000;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.16);
+}
+.main-heading {
+    font-size: 25px;
+    line-height: 35px;
+}
+.navbar-collapse .navbar-nav{
+    max-width:765px;
+    margin:0 auto !important
+}
+
+.modal {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+.navbar-nav .nav-link {
+    font-size: 14px;
+}
+.mb-30 {
+    margin-bottom: 20px;
+}
+.inner-title {
+    font-size: 20px;
+}
+.modal-title {
+    font-size: 18px !important;
+}
+.navbar-toggler-icon{
+    width: 1em;
+    height: 1em;
+}
+.navbar-toggler{
+    padding: .25rem .50rem;
+}
+.navbar-nav .dropdown-menu{
+    position: absolute;
+}
+/*.navbar{
+    position: static;
+    background:#000;
+}*/
+.navbar-collapse{
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    background: #000;
+    top: 100%;
+}
+.navbar-collapse .navbar-nav{
+    max-width:765px;
+    margin:0 auto !important
+}
+.navbar-collapse{
+    padding-top: 6px;
+}
+.darkHeader .navbar-nav li.nav-item a{
+    color:#fff !important
+}
+.header-after-login.darkHeader .navbar-nav li.nav-item a {
+    color: #fff !important;
+}
+.main-heading {
+    font-size: 30px;
+    line-height: 40px;
+}
+.banner-slider.owl-carousel .owl-item .item-image {
+   height:300px;
+}
+.banner-image .item-image {
+    height:300px;
+}
+.font-16 {
+    font-size: 14px !important;
+}
+.font-18 {
+    font-size: 16px !important;
+}
+.font-20 {
+    font-size: 16px !important;
+}
+.font-22 {
+    font-size: 16px !important;
+}
+.font-24 {
+    font-size: 18px !important;
+}
+p {
+    font-size: 14px;
+}
+.unorder-list li {
+    font-size: 16px;
+}
+.inner-title {
+    font-size: 22px;
+}
+.form-control-lg {
+    font-size: 14px;
+}
+.btn-group-lg>.btn, .btn-lg {
+    font-size: 14px;
+    padding: 0.63rem 1rem;
+}
+.btn-primary, .btn-orange {
+    font-size: 14px;
+}
+.section{
+    padding:40px 0px !important;
+}
+
+.navbar.header-before-login.darkHeader .color-logo
+{
+    display:none !important;
+}
+.navbar.header-before-login.darkHeader img {
+     display: block !important;
+ }
+.header-after-login.darkHeader .navbar-nav li.nav-item a.log-off.text-info {
+    color: #0E6FFF !important;
+}
+.header-after-login.darkHeader.navbar-dark .navbar-nav .active>.nav-link {
+    color: #557CFF !important;
+}
+.modal-header, .modal-body {
+    padding: 12px 16px;
+}
+.close {
+    top: 12px;
+}
+.list-post-for a {
+    line-height: 20px;
+}
+.btn {
+    text-transform: capitalize;
+}
+.navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 0.5rem;
+}
+.navbar-nav .nav-item .nav-link {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+}
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+    color: #fff !important;
+}
+/*.header-after-login.navbar-dark .navbar-nav .nav-link {
+    color: #557CFF !important;
+}*/
+.navbar-collapse .navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 0.2rem;
+}
+.navbar-collapse .navbar-nav .nav-link {
+    padding-left: 1.4rem;
+    float: left;
+}
+.navbar-collapse .navbar-nav .nav-link p {
+    display: block;
+}
+.card-header, .card-body, .card-footer {
+    padding: 12px;
+}
+h5 {
+    font-size: 16px !important;
+}
+
+.list-group-item {
+    font-size: 14px;
+    padding: .55rem 1.15rem;
+}
+.font-17 {
+    font-size: 15px !important;
+}
+.h4, h4 {
+    font-size: 1.3rem;
+}
+.font-15 {
+    font-size: 14px !important;
+}
+h6 {
+    font-size: 14px;
+}
+.h1, h1 {
+    font-size: 1.6rem;
+}
+.modal-dialog.dialog-fit-content {
+    margin: 0 auto !important;
+}
+.modal-dialog.dialog-fit-content .modal-body img {
+    width: 120px;
+}
+
+}
+
+/* ********************************************************************************************
+    Design for a width of 639px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 639px) {
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 500px and below
+*********************************************************************************************** */
+
+@media only screen and (min-width: 576px) {
+.modal-sm {
+    max-width: 300px;
+}
+
+}
+
+
+/* ********************************************************************************************
+    Design for a width of 500px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 576px) {
+    
+    
+}
+
+
+
+/* ********************************************************************************************
+    Design for a width of 520px and below
+*********************************************************************************************** */
+
+@media only screen and (min-width: 480px) and (max-width: 520px)  {
+   
+    
+}
+/* ********************************************************************************************
+    Design for a width of 520px and below
+*********************************************************************************************** */
+
+@media only screen and (min-width: 380px) and (max-width: 768px)  {
+   .navbar-nav .nav-item .nav-link {
+	padding-right: 0.8rem !important;
+	padding-left: 0.8rem !important;
+   }
+    
+}
+
+/* ********************************************************************************************
+    Design for a width of 479px and below
+*********************************************************************************************** */
+@media only screen and (max-width: 435px) {
+    
+}
+
+@media only screen and (max-width: 479px) {
+
+footer ul li {
+    padding: 0px 5px;
+}
+
+
+}
+
+/* ********************************************************************************************
+    Design for a width of 380px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 380px) {
+    
+
+}
+
+/* ********************************************************************************************
+    Design for a width of 320px and below
+*********************************************************************************************** */
+
+@media only screen and (max-width: 320px) {    
+
+}

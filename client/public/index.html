@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="generator" content="" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Xanduva</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Clobber Grotesk Fonts -->
+    <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/all.min.css" />
+    <!-- Material Desing Iconic Font -->
+    <link
+      rel="stylesheet"
+      href="/assets/plugins/material-font/css/material-design-iconic-font.min.css"
+    />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <!-- Bootstrap Fileinput-->
+    <link
+      rel="stylesheet"
+      href="/assets/plugins/bootstrap-fileinput/bootstrap-fileinput.css"
+    />
+    <!-- Drag and Drop-->
+    <link
+      rel="stylesheet"
+      href="/assets/plugins/drag-and-drop/dragula.min.css"
+    />
+    <!-- Date Picker-->
+    <link rel="stylesheet" href="/assets/plugins/datepicker/datepicker3.css" />
+    <!-- Select2-->
+    <link
+      rel="stylesheet"
+      href="/assets/plugins/select2-develop/dist/css/select2.min.css"
+    />
+   
+    <!-- Web Css -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/style.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/css/developer.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/css/responsive.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <!-- Bootstrap -->
+    <script src="/assets/plugins/jquery/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Fileinput-->
+    <!-- <script src="/assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script> -->
+    <!-- Date Picker-->
+    <script src="/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Chart JS-->
+    <script src="/assets/plugins/chart/chart.bundle.min.js"></script>
+    <!-- Drag and Drop-->
+    <script src="/assets/plugins/drag-and-drop/dragula.min.js"></script>
+    <script src="/assets/plugins/drag-and-drop/drag-and-drop-init.js"></script>
+    <!-- Select2-->
+    <script src="/assets/plugins/select2-develop/dist/js/select2.min.js"></script>
+    <script src="/assets/plugins/select2-develop/dist/js/select2.full.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="/assets/plugins/owl-carousel/js/owl.carousel.min.js"></script>
+    <!-- Scroll to Fixed -->
+    <script src="/assets/js/jquery-scrolltofixed.js"></script>
+    <!-- Theme App -->
+    <script src="/assets/js/app.js"></script>
+
+   
+    <script>
+      jQuery(".standard").click(function() {
+        jQuery("html, body").animate(
+          {
+            scrollTop: jQuery(".home-standard").offset().top - 95
+          },
+          700
+        );
+      });
+      jQuery(".inspection").click(function() {
+        jQuery("html, body").animate(
+          {
+            scrollTop: jQuery(".home-inspection").offset().top - 95
+          },
+          700
+        );
+      });
+    </script>
+    <script>
+      $(document).on("hidden.bs.modal", function(event) {
+        if ($(".modal:visible").length) {
+          $("body").addClass("modal-open");
+        }
+      });
+    </script>
+    <script>
+      $(window).on("load resize scroll", function() {
+        var f = $("footer");
+        f.css({ position: "static" });
+        if (f.offset().top + f.height() < $(window).height()) {
+          f.css({ position: "fixed", bottom: "0", width: "100%" });
+        }
+      });
+    </script>
+  </body>
+</html>
