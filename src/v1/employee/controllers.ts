@@ -8,7 +8,7 @@ import Joi from '@hapi/joi';
 import HttpStatus from 'http-status-codes';
 import { Context, IBodyContext, IQueryContext } from 'koa';
 
-import { Util } from '../../services/util.service';
+import { Util } from '../../services/util';
 import { get, IParamsContext, post, validate } from '../middlewares';
 
 import { IEmployee } from './models';
