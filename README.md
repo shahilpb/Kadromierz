@@ -1,5 +1,31 @@
 # Kadro
 
+## Client
+
+- Development
+
+  ```bash
+  npm install
+  ```
+
+  ```bash
+  npm start
+  ```
+
+- Production
+
+  ```bash
+  npm install
+  ```
+
+  ```bash
+  npm run build
+  ```
+
+  ```bash
+  npm start
+  ```
+
 ## Server
 
 - Development
@@ -26,7 +52,7 @@
   npm start
   ```
 
-### Technology
+## Technology
 
 - `Node.js`
 - `Koa`
