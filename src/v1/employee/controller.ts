@@ -16,7 +16,7 @@ import {
   EmployeeDetailsById,
   EmployeeList
 } from './middelwares/service';
-import { IEmployee } from './models/employee';
+import { IEmployee } from './models';
 
 /**
  * @function

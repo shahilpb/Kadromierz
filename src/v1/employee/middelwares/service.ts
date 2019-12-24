@@ -2,8 +2,7 @@
  * @file Employee Services
  */
 
-import { Employee, EmployeeDocument } from '../models/employee';
-import { IEmployee } from '../models/employee';
+import { Employee, EmployeeDocument, IEmployee } from '../models';
 
 /**
  * Get Employee List Query
