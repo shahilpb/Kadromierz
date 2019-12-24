@@ -1,4 +1,34 @@
-clone repository
-run npm install 
-run npm start
-open http://localhost:3000/v1
+# Kadro
+
+## Server
+
+- Development
+
+  ```bash
+  npm install
+  ```
+
+  ```bash
+  npm run dev
+  ```
+
+- Production
+
+  ```bash
+  npm install
+  ```
+
+  ```bash
+  npm run build
+  ```
+
+  ```bash
+  npm start
+  ```
+
+### Technology
+
+- `Node.js`
+- `Koa`
+- `Typescript`
+- `Mongo`
