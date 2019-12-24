@@ -8,8 +8,7 @@ import HttpStatus from 'http-status-codes';
 import { Context, IBodyContext, IQueryContext } from 'koa';
 
 import { Util } from '../../services/util.service';
-import { validate } from '../../v1/middlewares/validate';
-import { get, post } from '../middlewares';
+import { get, post, validate } from '../middlewares';
 
 import {
   CreateEmployee,

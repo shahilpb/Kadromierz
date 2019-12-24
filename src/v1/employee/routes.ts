@@ -8,7 +8,7 @@ import {
   createEmployee,
   getEmployeeDetail,
   getEmployeeList
-} from './controller';
+} from './controllers';
 
 export const employee = () =>
   compose([getEmployeeList(), getEmployeeDetail(), createEmployee()]);
