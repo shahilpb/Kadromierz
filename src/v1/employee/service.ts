@@ -2,8 +2,9 @@
  * @file Employee Services
  */
 
-import { cryptoRandomNumber } from '../../../services';
-import { Employee, EmployeeDocument, IEmployee } from '../models';
+import { cryptoRandomNumber } from '../../services';
+
+import { Employee, EmployeeDocument, IEmployee } from './models';
 
 /**
  * Get Employee List Query

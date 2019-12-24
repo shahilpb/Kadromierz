@@ -11,13 +11,13 @@ import { Context, IBodyContext, IQueryContext } from 'koa';
 import { Util } from '../../services/util.service';
 import { get, IParamsContext, post, validate } from '../middlewares';
 
+import { IEmployee } from './models';
 import {
   CreateEmployee,
   EmployeeDetailsById,
   EmployeeList,
   RandomEmployee
-} from './middelwares/service';
-import { IEmployee } from './models';
+} from './service';
 
 /**
  * @function
