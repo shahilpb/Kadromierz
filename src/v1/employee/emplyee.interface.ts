@@ -1,8 +1,8 @@
 export interface EmployeeDetail {
-  image: string;
-  employee_name: string;
-  employee_id: string;
-  employee_position: string;
+  name: string;
+  number: string;
+  position: string;
+  image: string | null;
 }
 
 export interface IEmployeeDetail {

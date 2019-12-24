@@ -4,7 +4,7 @@
     "outDir": "./build",
     "rootDir": "src",
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "CommonJS",
     "declaration": true,
     "inlineSourceMap": true,
     "strict": true,
@@ -24,6 +24,12 @@
     "typeRoots": ["src/@types", "node_modules/@types"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules/**"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "**/__tests__/**",
+    "test-utils.ts",
+    "*.test.ts"
+  ],
   "compileOnSave": false
 }

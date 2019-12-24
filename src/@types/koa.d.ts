@@ -70,6 +70,8 @@ declare module 'koa' {
       header: Record<string, string>;
       headers: Record<string, string>;
       set(field: string, value: string): void;
+      set(fields: Record<string, string>): void;
+      append(field: string, value: string): void;
       redirect(url: string, alt?: string): void;
       attachment(filename: string): void;
       flushHeaders(): void;
