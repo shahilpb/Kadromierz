@@ -14,7 +14,8 @@ import { get, IParamsContext, post, validate } from '../middlewares';
 import {
   CreateEmployee,
   EmployeeDetailsById,
-  EmployeeList
+  EmployeeList,
+  RandomEmployee
 } from './middelwares/service';
 import { IEmployee } from './models';
 
@@ -77,6 +78,20 @@ export const getEmployeeList = () =>
       }
     }
   );
+
+/**
+ * @description Get Employee Details
+ */
+export const getRandomEmployeeDetail = () =>
+  get('/random', async (ctx: Context) => {
+    const util: Util = new Util();
+    const employee = await RandomEmployee();
+    if (employee == null) {
+      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
+    } else {
+      util.ReS(ctx, 'Employee List', employee, HttpStatus.OK);
+    }
+  });
 
 /**
  * @description Get Employee Details

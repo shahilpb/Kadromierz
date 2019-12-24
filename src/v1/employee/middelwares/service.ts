@@ -3,6 +3,7 @@
  */
 
 import { Employee, EmployeeDocument, IEmployee } from '../models';
+import { cryptoRandomNumber } from '../../../services';
 
 /**
  * Get Employee List Query
@@ -43,4 +44,19 @@ export const EmployeeDetailsById = async (
   id: string
 ): Promise<EmployeeDocument | null> => {
   return await Employee.findById(id).exec();
+};
+
+/**
+ * Get Employee Detail by Employee ID
+ */
+export const RandomEmployee = async (): Promise<EmployeeDocument | null> => {
+  const count = await Employee.estimatedDocumentCount();
+  const randomNumber = cryptoRandomNumber(0, count);
+  if (!randomNumber) {
+    return null;
+  }
+  return await Employee.findOne()
+    .skip(randomNumber)
+    .limit(1)
+    .exec();
 };

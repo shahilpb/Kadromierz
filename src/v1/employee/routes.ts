@@ -7,8 +7,14 @@ import compose from 'koa-compose';
 import {
   createEmployee,
   getEmployeeDetail,
-  getEmployeeList
+  getEmployeeList,
+  getRandomEmployeeDetail
 } from './controllers';
 
 export const employee = () =>
-  compose([getEmployeeList(), getEmployeeDetail(), createEmployee()]);
+  compose([
+    getEmployeeList(),
+    getRandomEmployeeDetail(),
+    getEmployeeDetail(),
+    createEmployee()
+  ]);
