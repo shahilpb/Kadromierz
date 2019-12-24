@@ -1,7 +1,7 @@
 /**
  * @file validation middleware
  * @copyright simplefox GmbH
- * @author Rafael Kallis <rk@rafaelkallis.com>
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 import Joi from '@hapi/joi';

@@ -1,6 +1,7 @@
 /**
- * @file Empolyee Detail's
- * @author Peerbits
+ * @file Empolyee controller
+ * @copyright peerbits
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 import Joi from '@hapi/joi';
@@ -8,7 +9,7 @@ import HttpStatus from 'http-status-codes';
 import { Context, IBodyContext, IQueryContext } from 'koa';
 
 import { Util } from '../../services/util.service';
-import { get, post, validate, IParamsContext } from '../middlewares';
+import { get, IParamsContext, post, validate } from '../middlewares';
 
 import {
   CreateEmployee,

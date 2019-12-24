@@ -1,7 +1,7 @@
 /**
  * @file node-jose types
  * @copyright simplefox GmbH
- * @author Rafael Kallis <rk@rafaelkallis.com>
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 /// <reference types="node" />
