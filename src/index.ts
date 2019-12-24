@@ -1,6 +1,7 @@
 /**
  * @file index
- * @author Peerbits
+ * @copyright peerbits
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 import { server } from './app';

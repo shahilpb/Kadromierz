@@ -1,6 +1,7 @@
 /**
  * @file app
- * @author Peerbits
+ * @copyright peerbits
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 import cors from '@koa/cors';
