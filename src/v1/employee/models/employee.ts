@@ -1,6 +1,7 @@
 /**
- * @file Emplyee Detail Schema
- * @author Peerbits
+ * @file Emplyee Schema
+ * @copyright peerbits
+ * @author Shrujal Shah <shrujal@peerbits.com>
  */
 
 import mongoose, { Document, Schema } from 'mongoose';
@@ -16,9 +17,12 @@ export interface IEmployee {
   image: string | null;
 }
 
+/**
+ * Type for employee document
+ */
 export type EmployeeDocument = IEmployee & Document;
 
-export const EmployeeDetail = new Schema<EmployeeDocument>(
+export const EmployeeSchema = new Schema<EmployeeDocument>(
   {
     name: { type: String, required: true },
     number: { type: String, required: true },
@@ -26,11 +30,10 @@ export const EmployeeDetail = new Schema<EmployeeDocument>(
     dob: { type: Date, required: false },
     image: { type: String, required: false }
   },
-  { collection: 'employee', versionKey: false }
+  { collection: 'employee', versionKey: false, timestamps: true }
 );
 
 export const Employee = mongoose.model<EmployeeDocument>(
   'employee',
-  EmployeeDetail
+  EmployeeSchema
 );
-export default Employee;

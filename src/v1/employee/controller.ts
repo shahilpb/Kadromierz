@@ -11,7 +11,6 @@ import { Util } from '../../services/util.service';
 import { validate } from '../../v1/middlewares/validate';
 import { get, post } from '../middlewares';
 
-import { EmployeeDetail } from './emplyee.interface';
 import {
   CreateEmployee,
   EmployeeDetailsById,
@@ -23,7 +22,7 @@ import { IEmployee } from './models/employee';
  * @function
  * @description Get Employee list
  */
-interface ICreateEmplyee extends Context<IBodyContext<EmployeeDetail>> {}
+interface ICreateEmplyee extends Context<IBodyContext<IEmployee>> {}
 export const createEmployee = () =>
   post('/create', async (ctx: ICreateEmplyee) => {
     const util: Util = new Util();
