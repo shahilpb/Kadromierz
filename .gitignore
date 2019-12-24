@@ -68,7 +68,12 @@ build
 *.swp
 
 # vscode
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
 
 # jest reports
 test-report.html
