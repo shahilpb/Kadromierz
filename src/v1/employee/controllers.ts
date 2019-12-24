@@ -72,7 +72,7 @@ export const getEmployeeList = () =>
         util.ReS(
           ctx,
           'Employee List',
-          { is_last: end >= count, employees, count },
+          { is_last: end >= count ? 1 : 0, employees, count },
           HttpStatus.OK
         );
       }
