@@ -16,7 +16,7 @@ import connect from './connect';
 import { v1 } from './v1';
 
 export const app = new Koa();
-connect({ db: 'mongodb://localhost:27017/tenna' });
+connect({ db: 'mongodb://localhost:27017/kadro' });
 
 app.proxy = true;
 
