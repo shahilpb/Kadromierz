@@ -4,7 +4,6 @@ export const objectProcessor = (state, newState) => ({ ...state, ...newState });
 export const arrayProcessor = (state, newState) => [...state, newState];
 
 export const saveToken = (data, isTokenNotExist = true) => {
-  //console.log(data);
   if (isTokenNotExist) {
     localStorage.setItem("token", data.token.token);
     localStorage.setItem("type", data.token.type);
@@ -12,10 +11,7 @@ export const saveToken = (data, isTokenNotExist = true) => {
 };
 
 export const removeFromArray = (arr = [], index) => {
-  //console.log("arr 1", arr);
   arr.splice(index, 1);
-  //console.log("arr 2", arr);
-
   return arr;
 };
 
@@ -129,7 +125,6 @@ export const searchInArray = (
   filterValue = ""
 ) => {
   if (searchValue.length > 2) {
-    // //console.log(array, searchValue);
     let result = array.filter((data, index) =>
       data.name.toLowerCase().includes(searchValue.toLowerCase())
     );

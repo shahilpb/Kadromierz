@@ -1,6 +1,4 @@
-import {  asyncApi,  deleteApiState,  } from "../action";
-import { getEmployeeList } from "../action";
-
+import {  asyncApi,  deleteApiState, getDrawResult, getEmployeeList } from "../action";
 
 export const asyncApiDispatchToProps = dispatch => {
   return {
@@ -39,5 +37,10 @@ export const appMapDispatchToProps = data => {
 export const employeeDispatchToProps = dispatch => {
   return {
     getEmployeeList: data => dispatch(getEmployeeList(data)),
+  };
+};
+export const drawDispatchToProps = dispatch => {
+  return {
+    getDrawResult: data => dispatch(getDrawResult(data)),
   };
 };

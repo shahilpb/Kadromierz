@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import { Modal } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroller";
 import { connect } from "react-redux";
-import { GET_EMPLOYEE_LIST,GET_DRAW_EMPLOYEE } from "../../constants/api";
+import { GET_DRAW_EMPLOYEE, GET_EMPLOYEE_LIST } from "../../constants/api";
 import apiCall, { METHOD } from "../../constants/baseUrl";
 import * as actions from "../../constants/mapDispatchToProps";
 import * as stateToProps from "../../constants/mapStateToProps";
 import EmployeeCard from "./EmployeeCard";
 import Header from "./Header";
-import { Modal } from "react-bootstrap";
 
 class Index extends Component {
   constructor(props) {
@@ -18,47 +18,38 @@ class Index extends Component {
       hasMore: true,
       loading: false,
       employeeList: [],
-      dialogStatus:false,
-      drawResult:{}
+      dialogStatus: false,
+    
     };
-    this.imgRef= React.createRef()
-
+    this.imgRef = React.createRef();
   }
 
-
-
-  openDialogue = ()=>{
-      
+  openDialogue = () => {
     apiCall(
-        GET_DRAW_EMPLOYEE,
-        {
-        },
-        data => {
-            this.setState(()=>{
-                return({
-                    ...this.state,
-                    drawResult:data,
-                   dialogStatus:true,
-                })
-               })
+      GET_DRAW_EMPLOYEE,
+      {},
+      data => {
+        this.setState(() => {
+          return {
+            ...this.state,
+            dialogStatus: true
+          };
+        });
+        this.props.getDrawResult(data);
+      },
+      data => {},
+      METHOD.GET,
+      ""
+    );
+  };
 
-        },
-        data => {
-        
-        },
-        METHOD.GET,
-        ''
-      );
-    }
-  
-
-  closeDialogue = ()=>{
-    this.setState(()=>{
-        return({
-           dialogStatus:false
-        })
-       })
-  }
+  closeDialogue = () => {
+    this.setState(() => {
+      return {
+        dialogStatus: false
+      };
+    });
+  };
 
   loadItems = () => {
     let token = "";
@@ -115,12 +106,12 @@ class Index extends Component {
       );
     }
   };
- 
 
   render() {
-    const { start, hasMore ,dialogStatus,drawResult} = this.state;
+    const { start, hasMore, dialogStatus } = this.state;
+    const {name,position,number,image} = this.props.drawResult
 
-    const loader = (
+  const loader = (
       <div
         className="spinner-border text-primary d-block mx-auto"
         role="status"
@@ -129,62 +120,105 @@ class Index extends Component {
       </div>
     );
     return (
-    
-    <div className="wrapper">
-<Modal
-            show={dialogStatus && dialogStatus}
-            className={dialogStatus ? "modal fade show" : "modal fade "}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Body>
-<div className={dialogStatus?('modal fade show'):('modal fade')} tabindex="-1" aria-modal="true" role="dialog" style= {dialogStatus? {display:'block', paddingRight:'17px'}:{display:'none'}} aria-labelledby="RandomSelectEmployeeLabel">
-    <div className="modal-dialog modal-dialog-centered" role="document">
-        <div className="modal-content">
-            <div className="modal-header">
-                <h4 className="modal-title">Employee Details</h4>
-                <button type="button" onClick={this.closeDialogue} className="close pointer" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" className="zmdi zmdi-close"></span>
-                </button>
-            </div>
-            <div className="modal-body employee-box-modal">
-                <div className="media">
+      <div className="wrapper">
+        <Modal
+          show={dialogStatus && dialogStatus}
+          className={dialogStatus ? "modal fade show" : "modal fade "}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Body>
+            <div
+              className={dialogStatus ? "modal fade show" : "modal fade"}
+              tabindex="-1"
+              aria-modal="true"
+              role="dialog"
+              style={
+                dialogStatus
+                  ? { display: "block", paddingRight: "17px" }
+                  : { display: "none" }
+              }
+              aria-labelledby="RandomSelectEmployeeLabel"
+            >
+              <div
+                className="modal-dialog modal-dialog-centered"
+                role="document"
+              >
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h4 className="modal-title">Employee Details</h4>
+                    <button
+                      type="button"
+                      onClick={this.closeDialogue}
+                      className="close pointer"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="zmdi zmdi-close"
+                      ></span>
+                    </button>
+                  </div>
+                  <div className="modal-body employee-box-modal">
+                    <div className="media">
                       <div className="media-left">
-
-       
-              <img src={drawResult.image} className="rounded-circle"  alt="Employee profile" />
-          
-
+                        <img
+                          src={image&& image}
+                          className="rounded-circle"
+                          alt="Employee profile"
+                        />
                       </div>
                       <div className="media-body ml-3">
-                          <div className="form-row">
-                                <label className="col-sm-4">Emp. Name <span className="float-sm-right">:</span></label>
-                                <label className="col-sm-8"><span className="text-dark font-500">{this.state.drawResult.name && this.state.drawResult.name}</span></label>
-                            </div>
-                            <div className="form-row">
-                                <label className="col-sm-4">Emp. Id <span className="float-sm-right">:</span></label>
-                                <label className="col-sm-8"><span className="text-dark font-500"># {this.state.drawResult.number && this.state.drawResult.number}</span></label>
-                            </div>
-                            <div className="form-row">
-                                <label className="col-sm-4">Emp. Position <span className="float-sm-right">:</span></label>
-                                <label className="col-sm-8"><span className="text-dark font-500">{this.state.drawResult.position && this.state.drawResult.position}</span></label>
-                            </div>
-                        
+                        <div className="form-row">
+                          <label className="col-sm-4">
+                            Emp. Name <span className="float-sm-right">:</span>
+                          </label>
+                          <label className="col-sm-8">
+                            <span className="text-dark font-500">
+                              {name &&
+                                name}
+                            </span>
+                          </label>
+                        </div>
+                        <div className="form-row">
+                          <label className="col-sm-4">
+                            Emp. Id <span className="float-sm-right">:</span>
+                          </label>
+                          <label className="col-sm-8">
+                            <span className="text-dark font-500">
+                              #{" "}
+                              {number &&
+                                number}
+                            </span>
+                          </label>
+                        </div>
+                        <div className="form-row">
+                          <label className="col-sm-4">
+                            Emp. Position{" "}
+                            <span className="float-sm-right">:</span>
+                          </label>
+                          <label className="col-sm-8">
+                            <span className="text-dark font-500">
+                              {position &&
+                                position}
+                            </span>
+                          </label>
+                        </div>
                       </div>
+                    </div>
                   </div>
+                </div>
+              </div>
             </div>
-           
-        </div>
-    </div>
-</div>
+          </Modal.Body>
+        </Modal>
 
-</Modal.Body>
-            </Modal>
         <div className="main-container">
           <div className="section-page">
             <div className="container">
-              <Header handleClick={this.openDialogue}/>
+              <Header handleClick={this.openDialogue} />
               <div className="col-lg-12">
                 <InfiniteScroll
                   pageStart={start}
@@ -193,7 +227,6 @@ class Index extends Component {
                   loader={loader}
                   className="form-row employee-box"
                 >
-                {/* we can get employeelist from state but to represent the structure of redux we call it from store */}
                   {this.props.employeeList &&
                     this.props.employeeList.employees &&
                     this.props.employeeList.employees.map((item, index) => {
@@ -211,11 +244,14 @@ class Index extends Component {
 export default connect(
   state =>
     stateToProps.appMapStateToProps(
-      [stateToProps.employeeListStateToProps],
+      [
+        stateToProps.employeeListStateToProps,
+        stateToProps.employeeDrawStateToProps
+      ],
       state
     ),
   actions.appMapDispatchToProps([
-    actions.asyncApiDispatchToProps,
+    actions.drawDispatchToProps,
     actions.employeeDispatchToProps
   ])
 )(Index);

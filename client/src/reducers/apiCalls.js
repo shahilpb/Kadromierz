@@ -6,7 +6,6 @@ const initialState = {
   error: null
 };
 export default function apiReducer(state = initialState, action) {
-  //console.log("action", action);
   switch (action.type) {
     case STARTED:
       return {

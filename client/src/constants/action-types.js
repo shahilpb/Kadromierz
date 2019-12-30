@@ -9,4 +9,5 @@ export const FAILURE = "FAILURE";
 export const STARTED = "STARTED";
 export const DELETE = "DELETE";
 export const GET_EMPLOYEE_LIST = "GET_EMPLOYEE_LIST";
+export const EMPLOYEE_DRAW = "EMPLOYEE_DRAW";
 

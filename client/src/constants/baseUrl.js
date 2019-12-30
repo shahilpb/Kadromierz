@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  baseURL: "http://13.234.81.103:8787/v1" 
+  baseURL: "http://192.168.1.167:3000/v1" 
 };
 export const METHOD = {
   POST: "post",
@@ -26,13 +26,12 @@ export default (
   method = METHOD.POST,
   DyanamicConfig = {}
 ) => {
-  //console.log("endpoint", endpoint, method);
   let request = {};
   switch (method) {
     case METHOD.POST:
       request = axios.post(
         endpoint,
-        { device_id: 1, device_type: "A", ...params },
+        {...params },
         { ...config, ...DyanamicConfig }
       );
       break;
@@ -70,7 +69,6 @@ export default (
               onSuccess(
                 response.data.data ? response.data.data : response.data
               );
-              //onSuccess(response)
             } catch (err) {
               onFailure("Something went wrong");
             }

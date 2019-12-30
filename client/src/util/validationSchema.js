@@ -69,12 +69,8 @@ export const CompleteProfileSchema = Yup.object().shape({
   last_name: Yup.string().required("Last Name is required"),
   email: Yup.string().required("Email is required"),
   country_code: Yup.string().required("Country code is required"),
-  // dob: Yup.date(),
   occupation: Yup.string().required("Occupation is required"),
   mobile_number: Yup.string().required("Mobile Number is required")
-  // password: Yup.string().required(),
-  // docs: Yup.mixed().required(),
-  // image: Yup.mixed().required()
 });
 
 
