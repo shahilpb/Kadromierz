@@ -56,10 +56,6 @@ export default class EmployeeCard extends Component {
 						    <label className="col-sm-6">Emp. Position <span className="float-sm-right">:</span></label>
 						    <label className="col-sm-6"><span className="text-dark font-500">{position && position}</span></label>
 						</div>
-						<div className="form-row">
-						    <label className="col-sm-6">Emp. Name <span className="float-sm-right">:</span></label>
-						    <label className="col-sm-6"><span className="text-dark font-500">07/05/1980</span></label>
-						</div>
 					    </div>
 					</div>
 				    </a>
