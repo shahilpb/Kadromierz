@@ -8,7 +8,7 @@ import Joi from '@hapi/joi';
 import HttpStatus from 'http-status-codes';
 import { Context, IBodyContext, IQueryContext } from 'koa';
 
-import { Util } from '../../services/util';
+import { Response } from '../../services/response';
 import { get, IParamsContext, post, validate } from '../middlewares';
 
 import { IEmployee } from './models';
@@ -26,13 +26,18 @@ import {
 interface ICreateEmplyee extends Context<IBodyContext<IEmployee>> {}
 export const createEmployee = () =>
   post('/', async (ctx: ICreateEmplyee) => {
-    const util: Util = new Util();
+    const response = new Response();
     const body = ctx.request.body;
     const employee: IEmployee = await CreateEmployee(body);
     if (employee) {
-      util.ReS(ctx, 'Employee List', employee, HttpStatus.OK);
+      response.success(ctx.response, employee, HttpStatus.OK);
     } else {
-      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
+      response.error(
+        ctx.response,
+        'No Data Found',
+        HttpStatus.NOT_FOUND,
+        'No Data Found'
+      );
     }
   });
 
@@ -61,17 +66,21 @@ export const getEmployeeList = () =>
     }),
     async (ctx: IGetEmplyeeListContext) => {
       const { start, end } = ctx.request.query;
-      const util: Util = new Util();
+      const response = new Response();
       const { data: employees, count } = await EmployeeList(
         parseInt(start.toString(), 10),
         parseInt(end.toString(), 10)
       );
       if (employees.length < 0) {
-        util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
+        response.error(
+          ctx.response,
+          'No Data Found',
+          HttpStatus.NOT_FOUND,
+          'No Data Found'
+        );
       } else {
-        util.ReS(
-          ctx,
-          'Employee List',
+        response.success(
+          ctx.response,
           { is_last: end >= count ? 1 : 0, employees, count },
           HttpStatus.OK
         );
@@ -84,12 +93,17 @@ export const getEmployeeList = () =>
  */
 export const getRandomEmployeeDetail = () =>
   get('/random', async (ctx: Context) => {
-    const util: Util = new Util();
+    const response = new Response();
     const employee = await RandomEmployee();
     if (employee == null) {
-      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
+      response.error(
+        ctx.response,
+        'No Data Found',
+        HttpStatus.NOT_FOUND,
+        'No Data Found'
+      );
     } else {
-      util.ReS(ctx, 'Employee List', employee, HttpStatus.OK);
+      response.success(ctx.response, employee, HttpStatus.OK);
     }
   });
 
@@ -100,11 +114,16 @@ interface IGetEmplyeeDetailContext extends Context<IParamsContext<'id'>> {}
 export const getEmployeeDetail = () =>
   get('/:id', async (ctx: IGetEmplyeeDetailContext) => {
     const { id } = ctx.request.params;
-    const util: Util = new Util();
+    const response = new Response();
     const employee = await EmployeeDetailsById(id);
     if (employee == null) {
-      util.ReE(ctx, 'No Data Found', HttpStatus.NOT_FOUND, 'No Data Found');
+      response.error(
+        ctx.response,
+        'No Data Found',
+        HttpStatus.NOT_FOUND,
+        'No Data Found'
+      );
     } else {
-      util.ReS(ctx, 'Employee List', employee, HttpStatus.OK);
+      response.success(ctx.response, employee, HttpStatus.OK);
     }
   });
