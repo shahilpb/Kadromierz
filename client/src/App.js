@@ -14,12 +14,6 @@ function App() {
           {appRoutes.map((routeProps, index) => (
             <Route key={index} {...routeProps} />
           ))}
-          {/* 
-          If Authentication module is there then this need to use.
-
-          {privateRoutes.map((routeProps, index) => {
-            return <PrivateRoute key={index} {...routeProps} />;
-          })} */}
           <Route component={PageNotFound} />
         </Switch>
       </Router>
