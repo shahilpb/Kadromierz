@@ -6,7 +6,7 @@ import { IResponse } from 'koa';
 export class Response {
   public success = (
     response: IResponse,
-    data: { [k: string]: any },
+    data: object,
     status: number = 200,
     error?: string
   ) => {

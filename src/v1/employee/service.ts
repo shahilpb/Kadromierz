@@ -2,8 +2,6 @@
  * @file Employee Services
  */
 
-import { cryptoRandomNumber } from '../../services';
-
 import { Employee, EmployeeDocument, IEmployee } from './models';
 
 /**
@@ -51,13 +49,6 @@ export const EmployeeDetailsById = async (
  * Get random Employee Detail
  */
 export const RandomEmployee = async (): Promise<EmployeeDocument | null> => {
-  const count = await Employee.estimatedDocumentCount();
-  const randomNumber = cryptoRandomNumber(0, count);
-  if (!randomNumber) {
-    return null;
-  }
-  return await Employee.findOne()
-    .skip(randomNumber)
-    .limit(1)
-    .exec();
+  const result = await Employee.aggregate().sample(1);
+  return result[0];
 };
