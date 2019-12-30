@@ -5,7 +5,6 @@ import { GET_EMPLOYEE_LIST,GET_DRAW_EMPLOYEE } from "../../constants/api";
 import apiCall, { METHOD } from "../../constants/baseUrl";
 import * as actions from "../../constants/mapDispatchToProps";
 import * as stateToProps from "../../constants/mapStateToProps";
-import TopHeader from "../CommanComponent/TopHeader";
 import EmployeeCard from "./EmployeeCard";
 import Header from "./Header";
 import { Modal } from "react-bootstrap";
@@ -182,8 +181,6 @@ class Index extends Component {
 
 </Modal.Body>
             </Modal>
-
-        <TopHeader />
         <div className="main-container">
           <div className="section-page">
             <div className="container">
